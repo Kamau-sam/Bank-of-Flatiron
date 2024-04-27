@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import TransactionsTable from "./TransactionsTable";
+import TransactionForm from "./TransactionForm";
+import "./Style.css";
 
 function App() {
+  const [transactions, setTransactions] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleAddTransaction = (transaction) => {
+    setTransactions([...transactions, transaction]);
+  };
+
+  const filteredTransactions = transactions.filter((transaction) =>
+    transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input
+        type="text"
+        placeholder="Search transactions"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <TransactionForm onAddTransaction={handleAddTransaction} />
+      <TransactionsTable transactions={filteredTransactions} />
     </div>
   );
 }
