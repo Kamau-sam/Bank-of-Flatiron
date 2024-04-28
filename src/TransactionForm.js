@@ -1,17 +1,20 @@
 // src/TransactionForm.js
 import React, { useState } from "react";
 
+
 function TransactionForm({ onAddTransaction }) {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddTransaction({ description, amount, category });
+    onAddTransaction({ description, amount, category, date });
     setDescription("");
     setAmount("");
     setCategory("");
+    setDate("");
   };
 
   return (
@@ -28,12 +31,17 @@ function TransactionForm({ onAddTransaction }) {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="">Select Category</option>
-        <option value="Food">Food</option>
-        <option value="Rent">Rent</option>
-        {/* Add more categories as needed */}
-      </select>
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Category"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      />
       <button type="submit">Add Transaction</button>
     </form>
   );
