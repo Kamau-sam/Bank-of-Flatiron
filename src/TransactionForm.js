@@ -1,6 +1,4 @@
-// src/TransactionForm.js
 import React, { useState } from "react";
-
 
 function TransactionForm({ onAddTransaction }) {
   const [description, setDescription] = useState("");
@@ -18,31 +16,37 @@ function TransactionForm({ onAddTransaction }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="transaction-form">
       <input
         type="text"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        className="input-field"
       />
       <input
         type="number"
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
+        className="input-field"
       />
       <input
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
+        className="input-field"
       />
       <input
         type="text"
         placeholder="Category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
+        className="input-field"
       />
-      <button type="submit">Add Transaction</button>
+      <button type="submit" className="add-button">
+        Add Transaction
+      </button>
     </form>
   );
 }

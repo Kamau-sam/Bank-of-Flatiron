@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TransactionsTable from "./TransactionsTable";
 import TransactionForm from "./TransactionForm";
+import "./AppStyles.css";
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -15,15 +16,21 @@ function App() {
   );
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search transactions"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <TransactionForm onAddTransaction={handleAddTransaction} />
-      <TransactionsTable transactions={filteredTransactions} />
+    <div className="app-wrapper">
+      {" "}
+      {/* Wrap everything in a parent container */}
+      <h1>The Royal Bank of Flatiron</h1>
+      <div className="app-container">
+        <input
+          type="text"
+          placeholder="Search transactions"
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <TransactionForm onAddTransaction={handleAddTransaction} />
+        <TransactionsTable transactions={filteredTransactions} />
+      </div>
     </div>
   );
 }

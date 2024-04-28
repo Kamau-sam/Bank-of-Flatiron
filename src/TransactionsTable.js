@@ -1,10 +1,10 @@
-// src/TransactionsTable.js
 import React from "react";
 import Transaction from "./Transaction";
+import "./AppStyles.css"; // Assuming you might want specific styles
 
 function TransactionsTable({ transactions }) {
   return (
-    <table>
+    <table className="transactions-table">
       <thead>
         <tr>
           <th>Date</th>
