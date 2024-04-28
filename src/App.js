@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="app-wrapper">
       {" "}
-      {/* Wrap everything in a parent container */}
+      {}
       <h1>The Royal Bank of Flatiron</h1>
       <div className="app-container">
         <input
