@@ -1,5 +1,5 @@
 import React from "react";
-
+// Component to display transaction details in a table row
 function Transaction({ transaction }) {
   return (
     <tr>
