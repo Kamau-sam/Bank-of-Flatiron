@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TransactionsTable from "./TransactionsTable"; // Importing TransactionsTable component
-import TransactionForm from "./TransactionForm"; // Importing TransactionForm component
-import "./AppStyles.css"; // Importing CSS styles
+import TransactionsTable from "./Components/TransactionsTable"; // Importing TransactionsTable component
+import TransactionForm from "./Components/TransactionForm"; // Importing TransactionForm component
+import "./Components/AppStyles.css"; // Importing CSS styles
 
 // Main App component
 function App() {
